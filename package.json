@@ -11,9 +11,11 @@
   "dependencies": {
     "express": "^4.18.2",
     "mongodb": "4.1",
+    "netlify": "^13.1.5",
     "pug": "^3.0.2"
   },
   "devDependencies": {
-    "mongoose": "^7.1.0"
+    "mongoose": "^7.1.0",
+    "nodemon": "^2.0.22"
   }
 }
