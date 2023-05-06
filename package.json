@@ -2,7 +2,7 @@
   "name": "instagram-login-page",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,6 +10,10 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
+    "mongodb": "4.1",
     "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "mongoose": "^7.1.0"
   }
 }

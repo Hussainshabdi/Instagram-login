@@ -3,6 +3,11 @@ const app = express();
 const path = require('path');
 const port = 80;
 const fs = require('fs');
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb+srv://admin:admin@cluster0.hod8qna.mongodb.net/test?retryWrites=true&w=majority',{useNewUrlParser:true,useUnifiedTopology:true}).then(()=>console.log('databaee is connected'))
+.catch((err)=>console.log(err))
+
 
 
 app.use('/static',express.static('static'));
@@ -16,17 +21,28 @@ app.get('/',(req,res)=>{
     res.render('demo.pug',params);
 })
 
-app.post('/',(req,res)=>{
-   email = req.body.email
-   password = req.body.password    
 
-   let out = `the name is ${email} and password is ${password} `;
-    fs.writeFileSync('output.txt',out);
 
-   
+
+
+const userSchema = new mongoose.Schema({
+    email:String,
+    password:String
 })
 
 
+const Instadata = new mongoose.model('instalist',userSchema)
+app.post('/',(req,res)=>{
+  const newData = new Instadata({
+    email:req.body.email,
+    password:req.body.password
+  }) 
+ 
+   
+  
+    
+  newData.save();
+ })
 
 
 app.listen(port,()=>{
