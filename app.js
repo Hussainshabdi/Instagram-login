@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const port = 8000;
-const fs = require('fs');
 const mongoose = require('mongoose');
 
 mongoose.connect('mongodb+srv://admin:admin@cluster0.hod8qna.mongodb.net/test?retryWrites=true&w=majority',{useNewUrlParser:true,useUnifiedTopology:true}).then(()=>console.log('databaee is connected'))
